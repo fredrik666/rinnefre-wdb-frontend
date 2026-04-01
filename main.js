@@ -1,5 +1,5 @@
 
-const apiUrl = "/api/ip";
+const apiUrl = "https://rahti-demo-git-firstproject.2.rahtiapp.fi/api/ip";
 
 console.log("API URL:", apiUrl);
 
