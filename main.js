@@ -1,3 +1,9 @@
+addEventListener("DOMContentLoaded", () => {
+    console.log("DOM fully loaded and parsed");
+    getIp();
+    getRooms();
+});
+
 
 const apiUrl = "https://rahti-demo-git-firstproject.2.rahtiapp.fi/api/ip";
 
@@ -18,4 +24,19 @@ async function getIp() {
     }
 }
 
-getIp();
+
+
+async function getRooms(){
+
+    const apiUrl = "https://rahti-demo-git-firstproject.2.rahtiapp.fi/api/rooms";
+    const res = await fetch(apiUrl);
+    const data = await res.json();
+
+    const roomsList = document.getElementById("rooms");
+    data.rooms.forEach(room => {
+        const li = document.createElement("li");
+        li.textContent = `${room.room_number} - ${room.type} - ${room.price}€`;
+        roomsList.appendChild(li);
+    });
+
+}
